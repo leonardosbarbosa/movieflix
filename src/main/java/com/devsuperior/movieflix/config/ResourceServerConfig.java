@@ -33,6 +33,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     private JwtTokenStore tokenStore;
 
     private static final String[] PUBLIC = {"/oauth/token", "/h2-console/**"};
+    private static final String[] MEMBERS = {"/reviews"};
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) {
@@ -49,6 +50,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers(PUBLIC).permitAll()
+                .antMatchers(MEMBERS).hasRole("MEMBER")
                 .anyRequest().authenticated();
 
         http.cors().configurationSource(corsConfigurationSource());
