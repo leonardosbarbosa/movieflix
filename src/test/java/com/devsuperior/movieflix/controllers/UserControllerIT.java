@@ -34,10 +34,10 @@ public class UserControllerIT {
 
     @BeforeEach
     void setUp() throws Exception {
-        memberUsername = "bob@gmail.com";
-        memberPassword = "123456";
-        visitorUsername = "ana@gmail.com";
+        visitorUsername = "bob@gmail.com";
         visitorPassword = "123456";
+        memberUsername = "ana@gmail.com";
+        memberPassword = "123456";
     }
 
     @Test
